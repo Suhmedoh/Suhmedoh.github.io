@@ -1,0 +1,99 @@
+
+div.middle
+{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+h2
+{
+    font-family: 'Dosis';
+    font-size: 40px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    width: auto;
+    text-align: center;
+    color: #909090;
+}
+
+h3
+{
+    font-family: 'Dosis';
+    font-size: 36px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    width: auto;
+    text-align: center;
+    color: #808080;
+}
+
+h4
+{
+    font-family: 'Dosis';
+    font-size: 32px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: auto;
+    text-align: center;
+    color: #c1c1c1;
+}
+
+
+p.cards
+{
+    font-family: 'Dosis';
+    font-size: 22px;
+    display: block;
+    margin: 0 auto;
+    width: auto;
+    text-align: center;
+    color: #c1c1c1;
+
+}
+
+.button {
+        background-color: #303030;
+        border: 1px;
+        border-radius: 3px;
+        color: white;
+        padding: 2px 5px;
+        text-align: center;
+        display: inline-block;
+        font-size: 15px;
+        margin: 5px 5px;
+        transition-duration: 0.9s;
+        cursor: pointer;
+}
+
+.buttonHit:hover {
+        background-color: red;
+        color: black;
+        transition-duration: 0.5s;
+}
+
+.buttonStay:hover {
+        background-color: green;
+        color: black;
+        transition-duration: 0.5s;
+}
+
+.buttonRules:hover {
+        background-color: blue;
+        color: black;
+        transition-duration: 0.5s;
+}
+
+body 
+{
+    background-image: url('pool_table.png');
+    background-repeat: repeat;
+}

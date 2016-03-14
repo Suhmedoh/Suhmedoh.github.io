@@ -16,7 +16,7 @@ h2
     margin-top: auto;
     width: auto;
     text-align: center;
-    color: #909090;
+    color: #707070;
 }
 
 h3
@@ -44,9 +44,22 @@ h4
     margin-bottom: 20px;
     width: auto;
     text-align: center;
-    color: #c1c1c1;
+    color: #909090;
 }
 
+h5
+{
+    font-family: 'Dosis';
+    font-size: 28px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    width: auto;
+    text-align: center;
+    color: #a0a0a0; 
+}
 
 p.cards
 {
@@ -68,7 +81,7 @@ p.cards
         padding: 2px 5px;
         text-align: center;
         display: inline-block;
-        font-size: 15px;
+        font-size: 28px;
         margin: 5px 5px;
         transition-duration: 0.9s;
         cursor: pointer;

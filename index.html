@@ -5,41 +5,28 @@
     <link href="https://fonts.googleapis.com/css?family=Dosis:600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" type="text/css" href="blackjack.css" />
     <title>jiaxsun</title>
-
-
 </head>
-
-<style>
-
-
-
-</style>
-
 <body>
     <h2> Welcome to the table.</h2> 
     <h3> Shall we begin?</h3>
-        <div class="dealerCards"> 
-            <h4>The Dealer's Cards</h4>
-            <p class="cards" id="dealerCard1">replace</p> 
-            <p class="cards" id="dealerCard2">replace</p> 
-        </div>
+    <div class="dealerCards"> 
+        <h4>The Dealer's Cards</h4>
+        <p class="cards" id="dealerCard1">replace</p> 
+        <p class="cards" id="dealerCard2">? &nbsp;?</p> 
+    </div>
     <div class="yourCards">
         <h4>Your Cards</h4>
         <p class="cards" id="playerCard1">replace</p> 
         <p class="cards" id="playerCard2">replace</p> 
     </div>
-
     <div class="middle">
-        <h5> Would you like to <button class="button buttonHit" onclick="hit">hit</button> or <button class="button buttonStay" onclick="stay">stay?</button> 
-        </h5>
+        <h5> Would you like to <button class="button buttonHit" onclick="hit()">hit</button> or <button class="button buttonStay" onclick="stay()">stay?</button> </h5>
     </div>
     <div style="height: 50px">
     </div>
-    <span style="text-align: center; display: block; margin-left: auto; margin-right: auto;"> Looking for the <button class="button buttonRules" onclick="displayRules()">rules?</button>
-    </span>
+    <h5> Looking for the <button class="button buttonRules" onclick="displayRules()">rules?</button><h5>
+    <h5> <button class="button buttonRules" onclick="revealDealer()">Reveal Dealer's card</button></h5>
     <p id="test"></p>
 <script type="text/javascript" src="blackjack.js"></script>
-    
 </body>
-
 </html>

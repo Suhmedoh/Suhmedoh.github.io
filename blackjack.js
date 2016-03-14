@@ -15,3 +15,8 @@ document.getElementById("dealerCard1").innerHTML = dCard1;
 document.getElementById("dealerCard2").innerHTML = dCard2;
 document.getElementById("playerCard1").innerHTML = pCard1;
 document.getElementById("playerCard2").innerHTML = pCard2;
+
+var dealerCard = new Object();
+	dealerCard.pip = dCard1;
+	dealerCard.val = dCard1.cardAt(0);
+	

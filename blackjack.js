@@ -59,7 +59,7 @@ function stay() {
 		}	
 	}
 }
-
+/*
 function draw() {
 	draw a card for a player/dealer
 }
@@ -93,3 +93,4 @@ function checkBlackJack() {
 
 }
 
+*/

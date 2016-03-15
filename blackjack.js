@@ -23,22 +23,35 @@ function revealDealer() {
 }
 
 function checkBust() {
-
+//	var testerino = 'SCHD'.split('').map(function(c) { return Object.defineProperty({}, c, {value: ['1..13']}); })
+//	document.getElementById("test").innerHTML = testerino[1.value];
 }
 
 
+  Array.range = function(start, stop) {
+    return Array.apply(null, { length: 1 + stop - start })
+    .map(function(v, i) {return start + i} );
+  };
 
-function hit() {
+  var suits = 'SCHD'.split('')
+  .map(function(e) {
+    return Object.defineProperty({}, e, { value: Array.range(1,13) });
+  });
 
-}
+  suits.forEach(function(e) {
+    console.log(e);
+  });
+
+
+
 
 function stay() {
 	revealDealer();
 	if (checkBust() == false) {
-		if (dealer.total > player.total) {
+		if (dealer.card1 > player.card1) {
 			document.getElementById("winner").innerHTML = "Dealer Wins!";
 		}
-		else if (player.total > dealer.total) {
+		else if (player.card1> dealer.card1) {
 			document.getElementById("winner").innerHTML = "You Win!";
 		}
 		else {

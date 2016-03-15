@@ -60,4 +60,36 @@ function stay() {
 	}
 }
 
+function draw() {
+	draw a card for a player/dealer
+}
+
+function revealDealer() {
+	reveal the mystery card teh dealer has after player finishs hitting/standing
+}
+
+function hit() {
+	already know card values will be legal, so draw card for player,
+	checkBust() after card draw, if <21, give option to hit again or stay
+
+}
+
+function stay() {
+	player keeps current cards, reveal dealer card
+	dealer has 17, must hit until he's over 17
+	figure out soft 17 ruling later
+}
+
+function checkBust() {
+	do math (card1 value + card 2 value)
+	if total > 21, bust
+		else ok
+	check both hands at start of the game, if both bust dealer wins
+	if player busts, dealer wins, if dealer busts, player wins
+}
+
+function checkBlackJack() {
+	check dealer/user to see if card combo equals 21
+
+}
 

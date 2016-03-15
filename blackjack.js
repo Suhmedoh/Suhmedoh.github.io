@@ -29,20 +29,45 @@ function initialDeal() {
 }
 
 function checkBlackJack(){
-	if (((player[0].charAt(0) === 'A') && (player[1].charAt(0) === '10' || player[1].charAt(0) === 'J' || player[1].charAt(0) === 'Q' || player[1].charAt(0) === 'K')) ||
-	 ((player[1].charAt(0) === 'A') && (player[0].charAt(0) === '10' || player[0].charAt(0) === 'J' || player[0].charAt(0) === 'Q' || player[0].charAt(0) === 'K'))) {
+	if (((player[0].charAt(0) === 'A') && (player[1].charAt(0) === '1' || player[1].charAt(0) === 'J' || player[1].charAt(0) === 'Q' || player[1].charAt(0) === 'K')) ||
+	 ((player[1].charAt(0) === 'A') && (player[0].charAt(0) === '1' || player[0].charAt(0) === 'J' || player[0].charAt(0) === 'Q' || player[0].charAt(0) === 'K'))) {
 		document.getElementById("winner").innerHTML = "You were dealt Blackjack, you win!"
+		document.getElementById("dealerCard2").innerHTML = dealer[1];
 	}
-	else if (((dealer[0].charAt(0) === 'A') && (dealer[1].charAt(0) === '10' || dealer[1].charAt(0) === 'J' || dealer[1].charAt(0) === 'Q' || dealer[1].charAt(0) === 'K')) ||
-	 ((dealer[1].charAt(0) === 'A') && (dealer[0].charAt(0) === '10' || dealer[0].charAt(0) === 'J' || dealer[0].charAt(0) === 'Q' || dealer[0].charAt(0) === 'K'))) {
+	else if (((dealer[0].charAt(0) === 'A') && (dealer[1].charAt(0) === '1' || dealer[1].charAt(0) === 'J' || dealer[1].charAt(0) === 'Q' || dealer[1].charAt(0) === 'K')) ||
+	 ((dealer[1].charAt(0) === 'A') && (dealer[0].charAt(0) === '1' || dealer[0].charAt(0) === 'J' || dealer[0].charAt(0) === 'Q' || dealer[0].charAt(0) === 'K'))) {
 		document.getElementById("winner").innerHTML = "Dealer was dealt Blackjack, you lose."
+		document.getElementById("dealerCard2").innerHTML = dealer[1];
+	}
+	else {
+		for (var i = 0; i < player.length; i++) {
+		if (player[i].charAt(0) === '1' || player[i].charAt(0) === 'J' || player[i].charAt(0) === 'Q' || player[i].charAt(0) === 'K') {
+			playerAdd = 10;
+			console.log("playerAdd = " + playerAdd + " JQK loop");
+		}
+		else if (player[i].charAt(0) === 'A') {
+			playerAdd = 11;
+			console.log("playerAdd = " + playerAdd + " A loop");
+		}
+		else {
+		playerAdd = parseInt(player[i].charAt(0));
+		playerTotal = playerTotal + playerAdd;
+		console.log("playerTotal = " + playerTotal + " parse int");
+		}
+		if (playerTotal > 21) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+		return false;
 	}
 }
 
 
 initialDeal();
 checkBlackJack();
-checkBust();
 document.getElementById("dealerCard1").innerHTML = dealer[0];
 document.getElementById("playerCard1").innerHTML = player[0];
 document.getElementById("playerCard2").innerHTML = player[1];
@@ -53,7 +78,11 @@ function revealDealer() {
 	document.getElementById("dealerCard2").innerHTML = dealer[1];
 }
 
+
+// function to check if the player or dealer has busted by counting the value of all their cards
 function checkBust() {
+	playerTotal = 0;
+	dealerTotal = 0;
 	for (var i = 0; i < dealer.length; i++) {
 		if (dealer[i].charAt(0) === '1' || dealer[i].charAt(0) === 'J' || dealer[i].charAt(0) === 'Q' || dealer[i].charAt(0) === 'K') {
 			dealerAdd = 10;
@@ -68,15 +97,33 @@ function checkBust() {
 		dealerTotal = dealerTotal + dealerAdd;
 		console.log("dealerTotal = " + dealerTotal + " parse int");
 		}
-		if (dealerTotal > 21) {
-			return true;
+	}
+	for (var i = 0; i < player.length; i++) {
+		if (player[i].charAt(0) === '1' || player[i].charAt(0) === 'J' || player[i].charAt(0) === 'Q' || player[i].charAt(0) === 'K') {
+			playerAdd = 10;
+			playerTotal = playerTotal + playerAdd;
+			console.log("playerTotal= " + playerTotal + " JQK loop");
+		}
+		else if (player[i].charAt(0) === 'A') {
+			playerAdd = 11;
+			playerTotal = playerTotal + playerAdd;
+			console.log("playerTotal = " + playerTotal + " A loop");
 		}
 		else {
-			return false;
+		playerAdd = parseInt(player[i].charAt(0));
+		playerTotal = playerTotal + playerAdd;
+		console.log("playerTotal = " + playerTotal + " parse int");
 		}
 	}
 }
 
+function hitMe() {
+	player.push(shuffledDeck.pop());
+	document.getElementById("playerCard3").innerHTML = player[2];
+	checkBust();
+
+
+}
 
 function stay() {
 	revealDealer();
@@ -111,6 +158,7 @@ function stay() {
 	playerTotal = playerTotal + playerAdd;
 	console.log("playerTotal = " + playerTotal + " parse int");
 	}
+	//check if the dealer needs to hit or stand
 	if ((dealerTotal) < 17) {
 		document.getElementById("winner").innerHTML = "Dealer takes a hit...";
 		console.log(dealerTotal + " Dealer < 17")

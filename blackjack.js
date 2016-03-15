@@ -15,37 +15,24 @@ function cardObj() {
 	var newCardObj = new Object();
 	newCardObj.suit = suits[Math.floor(Math.random() * suits.length)];
 	newCardObj.rank = ranks[Math.floor(Math.random() * ranks.length)];
-	if (newCardObj.rank === 'J' || 'Q' || 'K') {
-		newCardObj.val = 9;
+	if (newCardObj.rank === 'J' || newCardObj.rank === 'Q' || newCardObj.rank === 'K') {
+		newCardObj.val = 10;
 	}
+	else if (newCardObj.rank === 'A') {
+		newCardObj.val = 11;
+	}	
 	else {
 		newCardObj.val = newCardObj.rank;
-	}	
+	}
 	return newCardObj;
 }
 
-
-/*
-function drawSuit() {
-	return suits[Math.floor(Math.random() * suits.length)];
-}
-
-function drawRank() {
-	return ranks[Math.floor(Math.random() * ranks.length)];
-}
-
-function drawCard() {
-	var s = drawSuit();
-	var r = drawRank();
-	return s + r;
-}
-*/
 
 dealer.card1 = cardObj();
 dealer.card2 = cardObj();
 player.card1 = cardObj();
 player.card2 = cardObj();
-document.getElementById("dealerCard1").innerHTML = dealer.card1.suit + dealer.card1.rank + dealer.card1.val;
+document.getElementById("dealerCard1").innerHTML = dealer.card1.suit + dealer.card1.rank;
 document.getElementById("playerCard1").innerHTML = player.card1.suit + player.card1.rank;
 document.getElementById("playerCard2").innerHTML = player.card2.suit + player.card2.rank;
 
@@ -54,6 +41,7 @@ function revealDealer() {
 }
 
 function checkBust() {
+	return false;
 //	var testerino = 'SCHD'.split('').map(function(c) { return Object.defineProperty({}, c, {value: ['1..13']}); })
 //	document.getElementById("test").innerHTML = testerino[1.value];
 }
@@ -75,14 +63,14 @@ function checkBust() {
 
   Array.range(0,51).map(function(e) { var card = e % 13 + 1; var suit = 'SHCD'.split('')[Math.floor(e/13)]; return suit+card; });
 
-
-
 */
+
+
 function stay() {
 	revealDealer();
 	if (checkBust() == false) {
-		if (dealer.card1 > player.card1) {
-			document.getElementById("winner").innerHTML = "Dealer Wins!";
+		if ((dealer.card1.val + dealer.card2.val) < 17) {
+			document.getElementById("winner").innerHTML = "Dealer takes a hit...";
 		}
 		else if (player.card1> dealer.card1) {
 			document.getElementById("winner").innerHTML = "You Win!";

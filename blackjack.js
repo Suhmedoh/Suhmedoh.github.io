@@ -1,16 +1,14 @@
 
 function displayRules() {
-	alert('Welcome to Joshs rendition of Blackjack.\n\n The rules are as follows:\n You must try to get as close to 21 as you can, without going over.\n\n Each card has a numerical value; 2 through 9 represent themselves, 10 through King are valued at 10, and an Ace is counted at 1 or 11, depending on which is more beneficial.\n\n You are dealt 2 cards; For the purpose of this game, both cards will be faceup, as it doesnt matter whether or not the dealer can see your cards, because they have to follow a predefined set of rules. \n\nAfter you recieve your two cards and the dealer has theirs, you may hit or stay.\n\n  If you choose hit, you are dealt another cardwhich adds to your total.\n\n  If at any point you go over 21, you lose. \n If you stay, you stick with the cards you have and whatever they total up to.\n\n  The goal is to beat the dealer.  This can be done by getting 21 exactly blackjack, getting a higher card value total than the dealer .. for example, your 20 vs their 19.. or by not going over 21 and having the dealer bust.')}
+	alert('Welcome to Josh\'s rendition of Blackjack.\n\n The rules are as follows:\n You must try to get as close to 21 as you can, without going over.\n\n Each card has a numerical value; 2 through 9 represent themselves, 10 through King are valued at 10, and an Ace is counted at 1 or 11, depending on which is more beneficial.\n\n You are dealt 2 cards; For the purpose of this game, both cards will be faceup, as it doesnt matter whether or not the dealer can see your cards, because they have to follow a predefined set of rules. \n\nAfter you recieve your two cards and the dealer has theirs, you may hit or stay.\n\n  If you choose hit, you are dealt another cardwhich adds to your total.\n\n  If at any point you go over 21, you lose. \n If you stay, you stick with the cards you have and whatever they total up to.\n\n  The goal is to beat the dealer.  This can be done by getting 21 exactly blackjack, getting a higher card value total than the dealer .. for example, your 20 vs their 19.. or by not going over 21 and having the dealer bust.')}
 // make the array of cards.  Seeing as a casinos typically use 6 or more decks and shuffle the cards partway through, i'll use a theoretically "endless" deck, with an unlimited number of shuffled cards.
 // card suits: spades = &#9824; , hearts &#9825; , clubs &#9827 , diamonds &#9826
 var deck = ['A&#9824;' , '2&#9824;' , '3&#9824;' , '4&#9824;' , '5&#9824;' , '6&#9824;' , '7&#9824;' , '8&#9824;' , '9&#9824;' , '10&#9824;' , 'J&#9824;' , 'Q&#9824;' , 'K&#9824;' , 'A&#9825;' , '2&#9825;' , '3&#9825;' , '4&#9825;' , '5&#9825;' , '6&#9825;' , '7&#9825;' , '8&#9825;' , '9&#9825;' , '10&#9825;', 'J&#9825;' , 'Q&#9825;' , 'K&#9825;' , 'A&#9827;' , '2&#9827;' , '3&#9827;' , '4&#9827;' , '5&#9827;' , '6&#9827;' , '7&#9827;' , '8&#9827;' , '9&#9827;' , '10&#9827;' , 'J&#9827;' , 'Q&#9827;' , 'K&#9827;' , 'A&#9826;' , '2&#9826;' , '3&#9826;' , '4&#9826;' , '5&#9826;' , '6&#9826;' , '7&#9826;' , '8&#9826;' , '9&#9826;' , '10&#9826;' , 'J&#9826;' , 'Q&#9826;' , 'K&#9826;' ];
-
-//var suits = ['&#9824;' , '&#9825;' , '&#9826;' , '&#9827;'] ;
-//var ranks = ['A' , '2' , '3' , '4' , '5' , '6' , '7' , '8' , '9' , '10' , 'J' , 'Q' , 'K']
 var dealer = [];
 var player = [];
-//var card = new Object();
-//var deck = new Object();
+var dealerTotal = 0;
+var playerTotal = 0;
+
 
 
 //from http://jsfromhell.com/array/shuffle
@@ -44,6 +42,7 @@ function checkBlackJack(){
 
 initialDeal();
 checkBlackJack();
+checkBust();
 document.getElementById("dealerCard1").innerHTML = dealer[0];
 document.getElementById("playerCard1").innerHTML = player[0];
 document.getElementById("playerCard2").innerHTML = player[1];
@@ -54,12 +53,37 @@ function revealDealer() {
 	document.getElementById("dealerCard2").innerHTML = dealer[1];
 }
 
+function checkBust() {
+	for (var i = 0; i < dealer.length; i++) {
+		if (dealer[i].charAt(0) === '1' || dealer[i].charAt(0) === 'J' || dealer[i].charAt(0) === 'Q' || dealer[i].charAt(0) === 'K') {
+			dealerAdd = 10;
+			console.log("dealerAdd = " + dealerAdd + " JQK loop");
+		}
+		else if (dealer[i].charAt(0) === 'A') {
+			dealerAdd = 11;
+			console.log("dealerAdd = " + dealerAdd + " A loop");
+		}
+		else {
+		dealerAdd = parseInt(dealer[i].charAt(0));
+		dealerTotal = dealerTotal + dealerAdd;
+		console.log("dealerTotal = " + dealerTotal + " parse int");
+		}
+		if (dealerTotal > 21) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+}
+
 
 function stay() {
 	revealDealer();
 	var dealerTotal = 0;
 	var playerTotal = 0;
 	var i;
+	//dealer total loop
 	for (var i = 0; i < dealer.length; i++) {
 		if (dealer[i].charAt(0) === '1' || dealer[i].charAt(0) === 'J' || dealer[i].charAt(0) === 'Q' || dealer[i].charAt(0) === 'K') {
 			dealerAdd = 10;
@@ -73,6 +97,20 @@ function stay() {
 		dealerTotal = dealerTotal + dealerAdd;
 		console.log("dealerTotal = " + dealerTotal + " parse int");
 	}
+	//player total loop
+	for (var i = 0; i < player.length; i++) {
+	if (player[i].charAt(0) === '1' || player[i].charAt(0) === 'J' || player[i].charAt(0) === 'Q' || player[i].charAt(0) === 'K') {
+		playerAdd = 10;
+		console.log("playerAdd = " + playerAdd + " JQK loop");
+	}
+	else if (player[i].charAt(0) === 'A') {
+		playerAdd = 11;
+		console.log("playerAdd = " + playerAdd + " A loop");
+	}
+	else playerAdd = parseInt(player[i].charAt(0));
+	playerTotal = playerTotal + playerAdd;
+	console.log("playerTotal = " + playerTotal + " parse int");
+	}
 	if ((dealerTotal) < 17) {
 		document.getElementById("winner").innerHTML = "Dealer takes a hit...";
 		console.log(dealerTotal + " Dealer < 17")
@@ -80,7 +118,8 @@ function stay() {
 	else if (dealerTotal > 16 && dealerTotal < 21) {
 		if (dealerTotal > playerTotal) {
 			document.getElementById("winner").innerHTML = "Dealer wins!";
-			console.log(dealerTotal + "Dealer between 16-21");
+			console.log(dealerTotal + " = dealer total, Dealer between 16-21");
+			console.log(playerTotal + " = player total");
 		}
 		else {
 			document.getElementById("winner").innerHTML = "You win!";

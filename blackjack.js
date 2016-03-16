@@ -115,14 +115,28 @@ function checkBust() {
 		console.log("playerTotal = " + playerTotal + " parse int");
 		}
 	}
+	if (playerTotal > 21){
+		document.getElementById("winner").innerHTML = "You busted! Better luck next time."
+	}
 }
 
 function hitMe() {
 	player.push(shuffledDeck.pop());
-	document.getElementById("playerCard3").innerHTML = player[2];
-	checkBust();
-
-
+	switch (player.length) {
+		case 3:
+			document.getElementById("playerCard3").innerHTML = player[2];
+			checkBust();
+			break;
+		case 4:
+			document.getElementById("playerCard4").innerHTML = player[3];
+			checkBust();
+			break;
+		case 5:
+			document.getElementById("playerCard5").innerHTML = player[4];
+			checkBust();
+			break;
+		
+	}
 }
 
 function stay() {
@@ -146,21 +160,22 @@ function stay() {
 	}
 	//player total loop
 	for (var i = 0; i < player.length; i++) {
-	if (player[i].charAt(0) === '1' || player[i].charAt(0) === 'J' || player[i].charAt(0) === 'Q' || player[i].charAt(0) === 'K') {
-		playerAdd = 10;
-		console.log("playerAdd = " + playerAdd + " JQK loop");
+		if (player[i].charAt(0) === '1' || player[i].charAt(0) === 'J' || player[i].charAt(0) === 'Q' || player[i].charAt(0) === 'K') {
+			playerAdd = 10;
+			console.log("playerAdd = " + playerAdd + " JQK loop");
+		}
+		else if (player[i].charAt(0) === 'A') {
+			playerAdd = 11;
+			console.log("playerAdd = " + playerAdd + " A loop");
+		}
+		else playerAdd = parseInt(player[i].charAt(0));
+		playerTotal = playerTotal + playerAdd;
+		console.log("playerTotal = " + playerTotal + " parse int");
 	}
-	else if (player[i].charAt(0) === 'A') {
-		playerAdd = 11;
-		console.log("playerAdd = " + playerAdd + " A loop");
-	}
-	else playerAdd = parseInt(player[i].charAt(0));
-	playerTotal = playerTotal + playerAdd;
-	console.log("playerTotal = " + playerTotal + " parse int");
-	}
+	//letting player know their score
+	document.getElementById("winner").innerHTML = "You have " + playerTotal;
 	//check if the dealer needs to hit or stand
 	if ((dealerTotal) < 17) {
-		document.getElementById("winner").innerHTML = "Dealer takes a hit...";
 		console.log(dealerTotal + " Dealer < 17")
 	}
 	else if (dealerTotal > 16 && dealerTotal < 21) {
@@ -176,30 +191,6 @@ function stay() {
 	}
 
 }
-
-/*
-function checkBust() {
-	if (((dealer.total)  > 21) && (dealer.card1.rank !== 'A') && (dealer.card2.rank !== 'A')) {
-		document.getElementById("winner").innerHTML = "Dealer has busted! You win!"
-		return true;
-	}
-	else if ((player.card1.val + player.card2.val + player.card3.val) > 21) {
-		document.getElementById("winner").innerHTML = "Player has busted! Dealer Wins!"
-		return true;
-	}
-	else {
-		return false;
-	}
-}
-
-
-
-function hit() {
-	deck.card = cardObj();
-	return deck.card;
-
-}
-
 
 
 /*

@@ -100,7 +100,7 @@ p.cards
         transition-duration: 0.5s;
 }
 
-.buttonStay:hover {
+.buttonStand:hover {
         background-color: green;
         color: black;
         transition-duration: 0.5s;

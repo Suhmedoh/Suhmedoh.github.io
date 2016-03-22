@@ -197,6 +197,7 @@ function checkBustDealer() {
 				if (dealerTotal > 21) {
 					dealerTotal = dealerTotal - 10;
 				}
+			}
 		}
 	if (dealerTotal > 21) {
 		for (var i = 0; i < dealer.length; i++){
@@ -411,7 +412,7 @@ function dealerMechanics() {
 				document.getElementById("hitStand").innerHTML = "";
 		}	
 		else {
-			document.getElementById("status").innerHTML = "You have " + playerTotal + ", Dealer has " + dealerTotal + ", You win!";
+			document.getElementById("status").innerHTML = "You have " + playerTotal + ", Dealer has " + dealerTotal + "You win!";
 			document.getElementById("hitStand").innerHTML = "";
 			console.log(dealerTotal + "player total higher than dealer");
 		}

@@ -412,7 +412,7 @@ function dealerMechanics() {
 				document.getElementById("hitStand").innerHTML = "";
 		}	
 		else {
-			document.getElementById("status").innerHTML = "You have " + playerTotal + ", Dealer has " + dealerTotal + "You win!";
+			document.getElementById("status").innerHTML = "You have " + playerTotal + ", Dealer has " + dealerTotal + ", You win!";
 			document.getElementById("hitStand").innerHTML = "";
 			console.log(dealerTotal + "player total higher than dealer");
 		}

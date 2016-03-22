@@ -8,6 +8,7 @@ var dealer = [];
 var player = [];
 var dealerTotal = 0;
 var playerTotal = 0;
+var dealerAceCount = 0;
 
 //from http://jsfromhell.com/array/shuffle
 function shuffle(d) {
@@ -101,6 +102,7 @@ function checkBustPlayer() {
 		switch (playerAceCount) {
 			case 0:
 				document.getElementById("status").innerHTML = "You busted! Better luck next time.";
+				document.getElementById("hitStand").innerHTML = "";
 				break;
 			case 1:
 				playerTotal = playerTotal - 10;
@@ -129,18 +131,16 @@ function checkBustPlayer() {
 			revealDealer();
 		}
 		else if (playerTotal === 21) {
-			document.getElementById("status").innerHTML = "You Win!";
 			document.getElementById("hitStand").innerHTML = "";
-			revealDealer();
+			dealerMechanics();
 		} 
 		else {
 			return false;
 		}
 	}
 	else if (playerTotal == 21) {
-		document.getElementById("status").innerHTML = "21! You win!";
 		document.getElementById("hitStand").innerHTML = "";
-		revealDealer();
+		dealerMechanics();
 	}
 	else {
 		return false;
@@ -175,7 +175,8 @@ function checkBustDealer() {
 	if (dealerTotal > 21) {
 		switch (dealerAceCount) {
 			case 0:
-				document.getElementById("status").innerHTML = "You busted! Better luck next time.";
+				document.getElementById("status").innerHTML = "Dealer busted! You Win!";
+				document.getElementById("hitStand").innerHTML = "";
 				break;
 			case 1:
 				dealerTotal = dealerTotal - 10;
@@ -197,19 +198,8 @@ function checkBustDealer() {
 				if (dealerTotal > 21) {
 					dealerTotal = dealerTotal - 10;
 				}
+				break;
 			}
-		}
-	if (dealerTotal > 21) {
-		for (var i = 0; i < dealer.length; i++){
-			if (dealer[i].charAt(0) === 'A') {
-				dealerSub = 10;
-				dealerTotal = dealerTotal - dealerSub;
-				console.log("dealer sub ACE routine check")
-			}
-			else {
-				console.log("no ace");
-			}
-		}
 		if (dealerTotal > 21) {
 			document.getElementById("status").innerHTML = "Dealer busted! You win!";
 			document.getElementById("hitStand").innerHTML = "";
@@ -223,6 +213,20 @@ function checkBustDealer() {
 		else if (dealerTotal < 17) {
 			console.log("dealer has an ace and total is less than 17, must hit");
 			hitDealer();
+		}
+		else if ((dealerTotal > 16) && (dealerTotal < 21)){
+			if (dealerTotal > playerTotal) {
+				document.getElementById("status").innerHTML = "Dealer has " + dealerTotal + ", you have " + playerTotal + ", You lose.";
+				document.getElementById("hitStand").innerHTML = "";
+			}
+			else if (dealerTotal < playerTotal) {
+				document.getElementById("status").innerHTML = "Dealer has " + dealerTotal + ", you have " + playerTotal + ", You win!";
+				document.getElementById("hitStand").innerHTML = "";
+			}
+			else if (dealerTotal == playerTotal) {
+								document.getElementById("status").innerHTML = "Tie! Play Again?";
+				document.getElementById("hitStand").innerHTML = "";
+			}
 		}
 	}
 	else if (dealerTotal == 21) {
@@ -313,60 +317,24 @@ function hitDealer() {
 			document.getElementById("dealerCard9").innerHTML = dealer[8];
 			checkBustDealer();
 			break;	
+		case 10:
+			document.getElementById("dealerCard10").innerHTML = dealer[9];
+			checkBustDealer();
+			break;	
+		case 11:
+			document.getElementById("dealerCard11").innerHTML = dealer[10];
+			checkBustDealer();
+			break;	
 	}
 }
 
 function stand() {
-	playerTotal = 0;
-	var i;
-	//player total loop
-	for (var i = 0; i < player.length; i++) {
-		if (player[i].charAt(0) === '1' || player[i].charAt(0) === 'J' || player[i].charAt(0) === 'Q' || player[i].charAt(0) === 'K') {
-			playerAdd = 10;
-			playerTotal = playerTotal + playerAdd;
-			console.log("playerTotalStand = " + playerTotal + " JQK loop");
-		}
-		else if (player[i].charAt(0) === 'A') {
-			playerAdd = 11;
-			playerTotal = playerTotal + playerAdd;
-			console.log("playerTotalStand = " + playerTotal + " A loop");
-		}
-		else {
-			playerAdd = parseInt(player[i].charAt(0));
-			playerTotal = playerTotal + playerAdd;
-			console.log("playerTotalStand = " + playerTotal + " parse int");
-		}
-	}
-	//checking Aces for 1 vs 11
-	if (playerTotal > 21) {
-		for (var i = 0; i < player.length; i++){
-			if (player[i].charAt(0) === 'A') {
-				playerSub = 10;
-				playerTotal = playerTotal - playerSub;
-			}
-		}
-		if (playerTotal > 21) {
-			document.getElementById("status").innerHTML = "You busted! Better luck next time.";
-			document.getElementById("hitStand").innerHTML = "";
-			revealDealer();
-		}
-		else if (playerTotal === 21) {
-			document.getElementById("status").innerHTML = "21 ! You Win!";
-			document.getElementById("hitStand").innerHTML = "";
-			revealDealer();
-		} 
-		else {
-			console.log("stand with less than 21");
-			dealerMechanics();
-		}
-	}
-	else {
-		dealerMechanics();
-	}
-
+	checkBustPlayer();
+	dealerMechanics();
 }
 
 function dealerMechanics() {
+	/*
 	var dealerTotal = 0;
 	//show the dealer's hidden card
 	revealDealer();
@@ -389,20 +357,42 @@ function dealerMechanics() {
 		}
 	}
 	console.log("dealerTotal after dealer loop in dealerMechanics() = " + dealerTotal);
+	*/
+	revealDealer();
+	checkBustDealer();
 	//check if the dealer needs to hit or stand
 	//if the dealer need to hit
-	if ((dealerTotal) < 17) {
+	if ((dealerTotal < 17) || ((dealerTotal == 17) && (dealerAceCount > 0))){
 		console.log(dealerTotal + " Dealer < 17")
 		hitDealer();
 		dealerMechanics();
 	}
+	else if ((dealer.length == 2) && (dealerTotal == 17) && ((dealer[0].charAt(0) == 'A') || (dealer[1].charAt(0) == 'A'))) {
+		hitDealer();
+		dealerMechanics();
+	}
+
 	else if (dealerTotal > 21) {
 		checkBustDealer();
 	}
+
 	//if the dealer needs to stand
-	else if (dealerTotal > 16 && dealerTotal < 21) {
+
+	else if (dealerTotal == 21 && playerTotal < 21) {
+		document.getElementById("status").innerHTML = "Dealer has 21 ! You lose.";
+		document.getElementById("hitStand").innerHTML = "";
+	}
+	else if (dealerTotal == 21 && playerTotal == 21) {
+		document.getElementById("status").innerHTML = "Tie! Play again?";
+		document.getElementById("hitStand").innerHTML = "";
+	}
+	else if (dealerTotal == 21 && playerTotal > 21) {
+		document.getElementById("status").innerHTML = "Dealer has 21 ! You lose.";
+		document.getElementById("hitStand").innerHTML = "";	
+	}
+	else {
 		if (dealerTotal > playerTotal) {
-			document.getElementById("status").innerHTML = "Dealer wins!";
+			document.getElementById("status").innerHTML = "You have " + playerTotal + ", Dealer has " + dealerTotal + ", You lose!";
 			document.getElementById("hitStand").innerHTML = "";
 			console.log(dealerTotal + " = dealer total, Dealer between 16-21");
 			console.log(playerTotal + " = player total");
@@ -416,10 +406,6 @@ function dealerMechanics() {
 			document.getElementById("hitStand").innerHTML = "";
 			console.log(dealerTotal + "player total higher than dealer");
 		}
-	}
-	else if (dealerTotal === 21) {
-		document.getElementById("status").innerHTML = "Dealer has 21 ! You lose.";
-		document.getElementById("hitStand").innerHTML = "";
 	}
 
 }

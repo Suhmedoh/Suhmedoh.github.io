@@ -21,6 +21,7 @@ h2
     margin-left: auto;
     margin-right: auto;
     margin-top: auto;
+    padding-top: 40px;
     width: auto;
     text-align: center;
     color: #e6dedc;
@@ -91,32 +92,28 @@ p.cards
         display: inline-block;
         font-size: 40px;
         margin: 5px 5px;
-        transition-duration: 1.75s;
+        transition-duration: 1s;
         cursor: pointer;
 }
 
 
 .buttonHit:hover {
-        background-color: #cc0033;
         color: black;
-        transition-duration: 1.75s;
+        transition-duration: 1s;
 }
 
 .buttonStand:hover {
-        background-color: #1099dd;
         color: black;
-        transition-duration: 1.75s;
+        transition-duration: 1s;
 }
 
 .buttonPlay:hover {
-        background-color: #e6dedc;
         color: black;
-        transition-duration: 1.75s;
+        transition-duration: 1s;
 }
 .buttonRules:hover {
-        background-color: #e6dedc;
         color: black;
-        transition-duration: 1.75s;
+        transition-duration: 1s;
 }
 
 body 

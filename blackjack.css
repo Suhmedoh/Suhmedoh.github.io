@@ -92,28 +92,28 @@ p.cards
         display: inline-block;
         font-size: 40px;
         margin: 5px 5px;
-        transition-duration: 1s;
+        transition-duration: .4s;
         cursor: pointer;
 }
 
 
 .buttonHit:hover {
         color: #CD5C5C;
-        transition-duration: 1s;
+        transition-duration: .4s;
 }
 
 .buttonStand:hover {
         color: #6495ED;
-        transition-duration: 1s;
+        transition-duration: .4s;
 }
 
 .buttonPlay:hover {
         color: #6495ED;
-        transition-duration: 1s;
+        transition-duration: .4s;
 }
 .buttonRules:hover {
         color: #CD5C5C;
-        transition-duration: 1s;
+        transition-duration: .4s;
 }
 
 body 

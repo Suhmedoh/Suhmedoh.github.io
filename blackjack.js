@@ -1,9 +1,9 @@
 
 function displayRules() {
-	alert('Welcome to Josh\'s rendition of Blackjack.\n\n The rules are as follows:\n You must try to get as close to 21 as you can, without going over.\n\n Each card has a numerical value; 2 through 9 represent themselves, 10 through King are valued at 10, and an Ace is counted at 1 or 11, depending on which is more beneficial.\n\n You are dealt 2 cards; For the purpose of this game, both cards will be faceup, as it doesnt matter whether or not the dealer can see your cards, because they have to follow a predefined set of rules. \n\nAfter you recieve your two cards and the dealer has theirs, you may hit or stand.\n\n  If you choose hit, you are dealt another cardwhich adds to your total.\n\n  If at any point you go over 21, you lose. \n If you stand, you stick with the cards you have and whatever they total up to.\n\n  The goal is to beat the dealer.  This can be done by getting 21 exactly blackjack, getting a higher card value total than the dealer .. for example, your 20 vs their 19.. or by not going over 21 and having the dealer bust.')}
+	alert('Welcome to Josh\'s rendition of Blackjack.\n\n The rules are as follows:\n You must try to get as close to 21 as you can, without going over.\n\n Each card has a numerical value; 2 through 9 represent themselves, 10 through King are valued at 10, and an Ace is counted at 1 or 11, depending on which is more beneficial.\n\n You are dealt 2 cards; For the purpose of this game, both cards will be faceup, as it doesnt matter whether or not the dealer can see your cards, because they have to follow a predefined set of rules. \n\nAfter you recieve your two cards and the dealer has theirs, you may hit or stand.\n\n  If you choose hit, you are dealt another card which adds to your total.\n\n  If the total of your cards is over 21, you lose. \n If you stand, you stick with the cards you have and whatever they total up to.\n\n  The goal is to beat the dealer.  This can be done by getting 21 exactly blackjack, getting a higher card value total than the dealer, for example, your 20 vs their 19, or by not going over 21 and having the dealer bust.')}
 // make the array of cards.  Seeing as a casinos typically use 6 or more decks and shuffle the cards partway through, i'll use a theoretically "endless" deck, with an unlimited number of shuffled cards.
 // card suits: spades = &#9824; , hearts &#9825; , clubs &#9827 , diamonds &#9826
-var deck = ['A&#9824;' , '2&#9824;' , '3&#9824;' , '4&#9824;' , '5&#9824;' , '6&#9824;' , '7&#9824;' , '8&#9824;' , '9&#9824;' , '10&#9824;' , 'J&#9824;' , 'Q&#9824;' , 'K&#9824;' , 'A&#9825;' , '2&#9825;' , '3&#9825;' , '4&#9825;' , '5<span stayle="color:red">&#9825;</span>' , '6&#9825;' , '7&#9825;' , '8&#9825;' , '9&#9825;' , '10&#9825;', 'J&#9825;' , 'Q&#9825;' , 'K&#9825;' , 'A&#9827;' , '2&#9827;' , '3&#9827;' , '4&#9827;' , '5&#9827;' , '6&#9827;' , '7&#9827;' , '8&#9827;' , '9&#9827;' , '10&#9827;' , 'J&#9827;' , 'Q&#9827;' , 'K&#9827;' , 'A&#9826;' , '2&#9826;' , '3&#9826;' , '4&#9826;' , '5&#9826;' , '6&#9826;' , '7&#9826;' , '8&#9826;' , '9&#9826;' , '10&#9826;' , 'J&#9826;' , 'Q&#9826;' , 'K&#9826;' ];
+var deck = ['A&#9824;' , '2&#9824;' , '3&#9824;' , '4&#9824;' , '5&#9824;' , '6&#9824;' , '7&#9824;' , '8&#9824;' , '9&#9824;' , '10&#9824;' , 'J&#9824;' , 'Q&#9824;' , 'K&#9824;' , 'A<span style="color:red">&#9825;</span>' , '2<span style="color:red">&#9825;</span>' , '3<span style="color:red">&#9825;</span>' , '4<span style="color:red">&#9825;</span>' , '5<span style="color:red">&#9825;</span>' , '6<span style="color:red">&#9825;</span>' , '7<span style="color:red">&#9825;</span>' , '8<span style="color:red">&#9825;</span>' , '9<span style="color:red">&#9825;</span>' , '10<span style="color:red">&#9825;</span>', 'J<span style="color:red">&#9825;</span>' , 'Q<span style="color:red">&#9825;</span>' , 'K<span style="color:red">&#9825;</span>' , 'A&#9827;' , '2&#9827;' , '3&#9827;' , '4&#9827;' , '5&#9827;' , '6&#9827;' , '7&#9827;' , '8&#9827;' , '9&#9827;' , '10&#9827;' , 'J&#9827;' , 'Q&#9827;' , 'K&#9827;' , 'A<span style="color:red">&#9826;</span>' , '2<span style="color:red">&#9826;</span>' , '3<span style="color:red">&#9826;</span>' , '4<span style="color:red">&#9826;</span>' , '5<span style="color:red">&#9826;</span>' , '6<span style="color:red">&#9826;</span>' , '7<span style="color:red">&#9826;</span>' , '8<span style="color:red">&#9826;</span>' , '9<span style="color:red">&#9826;</span>' , '10<span style="color:red">&#9826;</span>' , 'J<span style="color:red">&#9826;</span>' , 'Q<span style="color:red">&#9826;</span>' , 'K<span style="color:red">&#9826;</span>' ];
 var dealer = [];
 var player = [];
 var dealerTotal = 0;
@@ -78,6 +78,7 @@ function revealDealer() {
 // function to check if the player has busted by counting the value of all their cards
 function checkBustPlayer() {
 	playerTotal = 0;
+	playerAceCount = 0;
 	for (var i = 0; i < player.length; i++) {
 		if (player[i].charAt(0) === '1' || player[i].charAt(0) === 'J' || player[i].charAt(0) === 'Q' || player[i].charAt(0) === 'K') {
 			playerAdd = 10;
@@ -88,6 +89,7 @@ function checkBustPlayer() {
 			playerAdd = 11;
 			playerTotal = playerTotal + playerAdd;
 			console.log("playerTotal bust = " + playerTotal + " A loop");
+			playerAceCount = playerAceCount + 1;
 		}
 		else {
 		playerAdd = parseInt(player[i].charAt(0));
@@ -96,18 +98,39 @@ function checkBustPlayer() {
 		}
 	}
 	if (playerTotal > 21) {
-		for (var i = 0; i < player.length; i++){
-			if (player[i].charAt(0) === 'A') {
-				playerSub = 10;
-				playerTotal = playerTotal - playerSub;
-			}
+		switch (playerAceCount) {
+			case 0:
+				document.getElementById("status").innerHTML = "You busted! Better luck next time.";
+				break;
+			case 1:
+				playerTotal = playerTotal - 10;
+				break;
+			case 2:
+				playerTotal = playerTotal - 10;
+				if (playerTotal > 21) {
+					playerTotal = playerTotal - 10;
+				}
+				break;
+			case 3:
+				playerTotal = playerTotal - 20;
+				if (playerTotal > 21) {
+					playerTotal = playerTotal - 10;
+				}
+				break;
+			case 4:
+				playerTotal = playerTotal - 30;
+				if (playerTotal > 21) {
+					playerTotal = playerTotal - 10;
+				}
 		}
 		if (playerTotal > 21) {
 			document.getElementById("status").innerHTML = "You busted! Better luck next time.";
+			document.getElementById("hitStand").innerHTML = "";
 			revealDealer();
 		}
 		else if (playerTotal === 21) {
 			document.getElementById("status").innerHTML = "You Win!";
+			document.getElementById("hitStand").innerHTML = "";
 			revealDealer();
 		} 
 		else {
@@ -167,11 +190,10 @@ function checkBustDealer() {
 			document.getElementById("status").innerHTML = "Dealer has 21! You lose.";
 			document.getElementById("hitStand").innerHTML = "";
 			revealDealer();
-
-
 		} 
-		else {
-			return false;
+		else if (dealerTotal < 17) {
+			console.log("dealer has an ace and total is less than 17, must hit");
+			hitDealer();
 		}
 	}
 	else if (dealerTotal == 21) {
@@ -300,12 +322,13 @@ function stand() {
 			revealDealer();
 		}
 		else if (playerTotal === 21) {
-			document.getElementById("status").innerHTML = "You Win!";
+			document.getElementById("status").innerHTML = "21 ! You Win!";
 			document.getElementById("hitStand").innerHTML = "";
 			revealDealer();
 		} 
 		else {
 			console.log("stand with less than 21");
+			dealerMechanics();
 		}
 	}
 	else {
@@ -351,6 +374,7 @@ function dealerMechanics() {
 	else if (dealerTotal > 16 && dealerTotal < 21) {
 		if (dealerTotal > playerTotal) {
 			document.getElementById("status").innerHTML = "Dealer wins!";
+			document.getElementById("hitStand").innerHTML = "";
 			console.log(dealerTotal + " = dealer total, Dealer between 16-21");
 			console.log(playerTotal + " = player total");
 		}
@@ -359,7 +383,7 @@ function dealerMechanics() {
 				document.getElementById("hitStand").innerHTML = "";
 		}	
 		else {
-			document.getElementById("status").innerHTML = "You win!";
+			document.getElementById("status").innerHTML = "You have " + playerTotal + ", Dealer has " + dealerTotal + "You win!";
 			document.getElementById("hitStand").innerHTML = "";
 			console.log(dealerTotal + "player total higher than dealer");
 		}

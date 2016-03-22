@@ -98,21 +98,21 @@ p.cards
 
 
 .buttonHit:hover {
-        color: black;
+        color: #cc0033;
         transition-duration: 1s;
 }
 
 .buttonStand:hover {
-        color: black;
+        color: #1099dd;
         transition-duration: 1s;
 }
 
 .buttonPlay:hover {
-        color: black;
+        color: #1099dd;
         transition-duration: 1s;
 }
 .buttonRules:hover {
-        color: black;
+        color: #cc0033;
         transition-duration: 1s;
 }
 

@@ -153,23 +153,51 @@ function checkBustPlayer() {
 // function to check if the dealer has busted by counting the value of all their cards
 function checkBustDealer() {
 	dealerTotal = 0;
+	dealerAceCount = 0;
 	for (var i = 0; i < dealer.length; i++) {
 		if (dealer[i].charAt(0) === '1' || dealer[i].charAt(0) === 'J' || dealer[i].charAt(0) === 'Q' || dealer[i].charAt(0) === 'K') {
 			dealerAdd = 10;
 			dealerTotal = dealerTotal + dealerAdd;
-			console.log("dealerTotal = " + dealerTotal + " JQK loop");
+			console.log("dealerTotal bust = " + dealerTotal + " JQK loop");
 		}
 		else if (dealer[i].charAt(0) === 'A') {
 			dealerAdd = 11;
 			dealerTotal = dealerTotal + dealerAdd;
-			console.log("dealerTotal = " + dealerTotal + " A loop");
+			console.log("dealerTotal bust = " + dealerTotal + " A loop");
+			dealerAceCount = dealerAceCount + 1;
 		}
 		else {
-			dealerAdd = parseInt(dealer[i].charAt(0));
-			dealerTotal = dealerTotal + dealerAdd;
-			console.log("dealerTotal = " + dealerTotal + " parse int");
+		dealerAdd = parseInt(dealer[i].charAt(0));
+		dealerTotal = dealerTotal + dealerAdd;
+		console.log("dealerTotal bust = " + dealerTotal + " parse int");
 		}
 	}
+	if (dealerTotal > 21) {
+		switch (dealerAceCount) {
+			case 0:
+				document.getElementById("status").innerHTML = "You busted! Better luck next time.";
+				break;
+			case 1:
+				dealerTotal = dealerTotal - 10;
+				break;
+			case 2:
+				dealerTotal = dealerTotal - 10;
+				if (dealerTotal > 21) {
+					dealerTotal = dealerTotal - 10;
+				}
+				break;
+			case 3:
+				dealerTotal = dealerTotal - 20;
+				if (dealerTotal > 21) {
+					dealerTotal = dealerTotal - 10;
+				}
+				break;
+			case 4:
+				dealerTotal = dealerTotal - 30;
+				if (dealerTotal > 21) {
+					dealerTotal = dealerTotal - 10;
+				}
+		}
 	if (dealerTotal > 21) {
 		for (var i = 0; i < dealer.length; i++){
 			if (dealer[i].charAt(0) === 'A') {
@@ -383,7 +411,7 @@ function dealerMechanics() {
 				document.getElementById("hitStand").innerHTML = "";
 		}	
 		else {
-			document.getElementById("status").innerHTML = "You have " + playerTotal + ", Dealer has " + dealerTotal + "You win!";
+			document.getElementById("status").innerHTML = "You have " + playerTotal + ", Dealer has " + dealerTotal + ", You win!";
 			document.getElementById("hitStand").innerHTML = "";
 			console.log(dealerTotal + "player total higher than dealer");
 		}

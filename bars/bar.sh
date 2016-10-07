@@ -1,0 +1,1 @@
+/home/jiaxsun/.local/bin/bar_sole.sh

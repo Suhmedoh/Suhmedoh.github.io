@@ -1,0 +1,3 @@
+#!/bin/bash
+
+~/.local/bin/bar.sh | /bin/lemonbar -g "1872x20+24+4" -B '#dfe2d1' -F '#92a28c' -f '-*-tewi-medium-*-*-*-11-*-*-*-*-*-*-*' 

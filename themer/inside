@@ -1,0 +1,16 @@
+#!/bin/bash
+rm ~/.Xresources
+ln -s ~/.XresourcesInside ~/.Xresources
+rm ~/.config/themer/current/startpage.html
+ln -s ~/.config/themer/current/startpageInside.html ~/.config/themer/current/startpage.html 
+rm ~/.config/themer/current/ff.css
+ln -s ~/.config/themer/current/ff_inside.css ~/.config/themer/current/ff.css
+rm ~/.config/i3/config
+ln -s ~/.config/i3/config_inside ~/.config/i3/config
+rm ~/.local/bin/rlb
+ln -s ~/.local/bin/rlb_inside ~/.local/bin/rlb
+feh --bg-fill ~/pictures/backgrounds/inside_tree_edit.png
+pkill rlb 
+pkill bar.sh 
+nohup rlb &
+reload-desktop

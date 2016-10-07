@@ -1,0 +1,18 @@
+#!/bin/bash
+rm ~/.Xresources
+ln -s ~/.XresourcesSole ~/.Xresources
+rm ~/.config/themer/current/startpage.html
+ln -s ~/.config/themer/current/startpageSole.html ~/.config/themer/current/startpage.html 
+rm ~/.config/themer/current/ff.css
+ln -s ~/.config/themer/current/ff_sole.css ~/.config/themer/current/ff.css
+rm ~/.config/i3/config
+ln -s ~/.config/i3/config_sole ~/.config/i3/config
+rm ~/.local/bin/rlb
+ln -s ~/.local/bin/rlb_sole ~/.local/bin/rlb
+rm ~/.local/bin/bar.sh
+ln -s ~/.local/bin/bar_sole.sh ~/.local/bin/bar.sh
+feh --bg-fill ~/pictures/backgrounds/solefield.jpg
+pkill rlb 
+pkill bar.sh 
+nohup rlb &
+reload-desktop

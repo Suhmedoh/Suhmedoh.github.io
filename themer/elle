@@ -1,0 +1,17 @@
+#!/bin/bash
+rm ~/.Xresources
+ln -s ~/.XresourcesElle ~/.Xresources
+rm ~/.config/themer/current/startpage.html 
+ln -s ~/.config/themer/current/startpageElle.html ~/.config/themer/current/startpage.html
+rm ~/.config/themer/current/ff.css
+ln -s ~/.config/themer/current/ff_elle.css ~/.config/themer/current/ff.css
+rm ~/.config/i3/config
+ln -s ~/.config/i3/config_elle ~/.config/i3/config
+rm ~/.local/bin/rlb
+ln -s ~/.local/bin/rlb_elle ~/.local/bin/rlb
+feh --bg-fill ~/pictures/backgrounds/neon_demon_elle.png
+source ~/.bashrc
+pkill rlb
+pkill bar.sh
+nohup rlb &
+reload-desktop

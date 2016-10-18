@@ -1,5 +1,0 @@
-#!/bin/bash
-
-~/.local/bin/bar.sh | /bin/lemonbar -g "1920x20+0+0" -B '#424242' -F '#f6dedc' -f '-wiktorb-leggie-medium-*-*-*-12-*-*-*-*-*-*-*' 
-
-#150+20+

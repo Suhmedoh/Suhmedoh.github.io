@@ -1,3 +1,0 @@
-#!/bin/bash
-THEME="$1"
-$1

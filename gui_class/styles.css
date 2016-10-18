@@ -1,0 +1,189 @@
+<!--
+Joshua Semedo
+joshua_semedo@student.uml.edu
+Student at UMass Lowell taking 4610 GUI Programming I
+9/8/16
+This is my index page, which will lead to my other projects.
+Edited on 9/11/16, it passed the validator.nu website, https://validator.nu/?doc=http%3A%2F%2Fweblab.cs.uml.edu%2F%7Ejsemedo
+
+http://www.w3schools.com/css/css_rwd_grid.asp < used for a simple grid system
+-->
+
+
+ /*grid system, makes it easy to divide up content for different widths */
+
+[class*="col-"] {
+    float: left;
+    padding: 0;
+    margin: 0;
+    font-color: #f6dedc;
+}
+
+.col-1 {
+	display: inline-block;
+	width: 8.33%;
+}
+.col-2 {
+	display: inline-block;
+	width: 16.66%;
+}
+
+.col-3 {
+	display: inline-block;
+	width: 25%;
+}
+
+.col-4 {
+	display: inline-block;
+	width: 33.33%;
+}
+
+.col-5 {
+	display: inline-block;
+	width: 41.66%;
+}
+
+.col-6 {
+	display: inline-block;
+	width: 50%;
+}
+
+.col-7 {
+	display: inline-block;
+	width: 58.33%;
+}
+
+.col-8 {
+	display: inline-block;
+	width: 66.66%;
+}
+
+.col-9 {
+	display: inline-block;
+	width: 75%;
+}
+
+.col-10 {
+	display: inline-block;
+	width: 83.33%;
+}
+
+.col-11 {
+	display: inline-block;
+	width: 91.66%;
+}
+
+.col-12 {
+	display: inline-block;
+	width: 100%;
+}
+.container {
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 10px 0 0 0;
+	
+}
+
+/* styling for links on the left hand side to my github and personal site */
+
+a {
+	text-decoration: none;
+	border-left: 1px solid transparent;
+	border-right: 1px solid transparent;
+	transition-duration: .7s;
+	color: #778a53;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #c7a674;
+	transition-duration: .7s;
+
+}
+
+a:active {
+	text-decoration: none;
+	color: #b06f63;
+	transition-duration: .7s;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #778a53;
+	border-left: 2px solid #778a53;
+	border-right: 2px solid #778a53;
+	transition-duration: .7s;
+}
+
+a:visited:hover {
+	text-decoration: none;
+	color: #778a53;
+	border-left: 2px solid #778a53;
+	border-right: 2px solid #778a53;
+	transition-duration: .7s;
+}
+
+/*base styling for the page */
+html {
+	height: 100%;
+	color: #f6dedc;
+	background: #424242;
+}
+
+body {
+	height: 100%;
+	background: #424242;
+	color: #f6dedc;
+	font-size: 18px;
+	font-family: 'Josefin Sans', sans-serif;
+	margin: 0;
+}
+
+/*unordered list styling for the lefthand sidebar */
+
+ul {
+	text-align: center;
+	list-style-position: inside;
+	padding: 0;
+	color: #f6dedc;
+}
+
+li {
+	list-style: none;
+	color: #f6dedc;
+}
+
+h1 {
+	margin-top: 10px;
+	text-align: center;
+}
+
+em {
+	font-weight: bolder;
+}
+
+/* lefthand navigation panel, which will contain links i find useful as the semester goes on */
+
+#nav-panel {
+	display: inline-block;
+	height: 100%;
+	text-align: center;
+	color: #f6dedc;
+	float: left;
+
+}
+
+/* bottom footer with a copyright */
+
+#footer {
+	height: 24px;
+	padding: 3px;
+	margin: 0;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	text-align: right;
+	color: #f6dedc;
+}

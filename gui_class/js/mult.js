@@ -32,9 +32,11 @@ function updateTable() {
     }
   }
 
-  	multTable += "</tr></table>";
+  multTable += "</tr></table>";
 
-    return false;
+  document.getElementById("#table").textContent = multTable;
+
+  return false;
 }
 
 

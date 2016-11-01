@@ -8,7 +8,6 @@ var multTable;
 
 function updateTable() {
   var table = document.getElementById('multTable');
-  table.textContent = horizValue1 * v;
 
   for (i = horizValue1, j = 0; i < horizValue2; i++, j++) {
   	arrayHoriz[j] = i;

@@ -26,16 +26,14 @@ function updateTable() {
 
   multTable += "</tr><tr>";
 
-  for (k = 0; k <= arrayVerti.length; k++){
+  for (i = 0; i < arrayVerti.length; i++) {
     multTable += "<td>" + arrayVerti[k] + "</td>";
-      for (i = 0; i < arrayVerti.length; i++) {
-        for (j = 0; j < arrayHoriz.length; j++) {
-          console.log("ah*av=" + arrayHoriz[j]*arrayVerti[i])
-          multTable += "<td>" + arrayHoriz[j]*arrayVerti[i] + "</td>";
-        }
-      }
-    multTable += "</tr><tr>"
+    for (j = 0; j < arrayHoriz.length; j++) {
+      console.log("ah*av=" + arrayHoriz[j]*arrayVerti[i])
+      multTable += "<td>" + arrayHoriz[j]*arrayVerti[i] + "</td>";
+    }
   }
+  multTable += "</tr><tr>"
 
   multTable += "</tr></table>";
 

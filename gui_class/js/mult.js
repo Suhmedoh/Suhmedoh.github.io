@@ -26,14 +26,15 @@ function updateTable() {
 
   multTable += "</tr><tr>";
 
-  for (i = 0; i <= arrayVerti.length; i++) {
+  for (i = 0; i < arrayVerti.length; i++) {
     multTable += "<td>" + arrayVerti[k] + "</td>";
-    for (j = 0; j <= arrayHoriz.length; j++) {
+    for (j = 0; j < arrayHoriz.length; j++) {
       console.log("ah*av=" + arrayHoriz[j]*arrayVerti[i])
       multTable += "<td>" + arrayHoriz[j]*arrayVerti[i] + "</td>";
     }
+    multTable += "</tr><tr>"
   }
-  multTable += "</tr><tr>"
+
 
   multTable += "</tr></table>";
 

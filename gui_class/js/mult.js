@@ -14,7 +14,7 @@ function updateTable() {
   	arrayHoriz[j] = i;
   }
 
-  for (i = vertiValue1, j = 0; i < vertiValue2; i++, j++) {
+  for (i = vertiValue1, k = 0; i < vertiValue2; i++, k++) {
   	arrayVerti[k] = i;
   }
 

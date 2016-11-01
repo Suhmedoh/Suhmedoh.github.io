@@ -1,8 +1,0 @@
-My css is in two files in the css folder, the main sheet is styles.css, and the layout for the general grid system is in grid.css.  The main shee imports grid.css.  I have also included my javascript, which is in a js folder.
-
-weblab.cs.uml.edu/~jsemedo
-Joshua Semedo
-01516816
-joshsemedo@gmail.com
-joshua_Semedo@student.uml.edu
-

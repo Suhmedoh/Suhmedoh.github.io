@@ -20,14 +20,14 @@ function updateTable() {
   multTable = "<table><tr>";
 
   for (i = 0, j = 0; i <= arrayHoriz.length; i++, j++) {
-  	multTable += "<th> $arrayHoriz[j] </th>";
+  	multTable += "<td>" + arrayHoriz[j] + " </td>";
   }
 
   multTable += "</tr><tr>";
 
   for (i = 0, k = 0; i <= arrayVerti.length; i++, k++) {
     for (i = 0, j = 0; i <= arrayHoriz.length; i++, j++) {
-      multTable += "<td> $arrayHoriz[j]*$arrayHoriz[k] </td>";
+      multTable += "<td>" + arrayHoriz[j]*$arrayHoriz[k] + " </td>";
     }
   }
 

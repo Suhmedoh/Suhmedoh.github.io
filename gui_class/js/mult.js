@@ -25,10 +25,11 @@ function updateTable() {
 
   multTable += "</tr><tr>";
 
-  for (i = 0, k = 0; i <= arrayVerti.length; i++, k++) {
-    for (i = 0, j = 0; i <= arrayHoriz.length; i++, j++) {
-      multTable += "<td>" + arrayHoriz[j]*arrayHoriz[k] + " </td>";
+  for (i = 0; i <= arrayVerti.length; i++) {
+    for (j = 0; j <= arrayHoriz.length; j++) {
+      multTable += "<td>" + arrayHoriz[j]*arrayVerti[i] + " </td>";
     }
+    multTable += "</tr><tr>"
   }
 
   multTable += "</tr></table>";

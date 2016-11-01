@@ -5,37 +5,33 @@ var vertiValue2 = document.getElementById("verti2").value;
 var arrayHoriz = new Array();
 var arrayVerti = new Array();
 var multTable;
+
 function updateTable() {
   var table = document.getElementById('multTable');
   table.textContent = horizValue1 * v;
-  var j = 0;
-  var k = 0;
-  for (i = horizValue1; i < horizValue2; i++) {
+
+  for (i = horizValue1, j = 0; i < horizValue2; i++, j++) {
   	arrayHoriz[j] = i;
-  	j++;
   }
-  for (i = vertiValue1; i < vertiValue2; i++) {
+
+  for (i = vertiValue1, j = 0; i < vertiValue2; i++, j++) {
   	arrayVerti[k] = i;
-  	k++;
   }
 
   multTable = "<table><tr>";
-  j = 0;
 
-  for (i = 0; i <= arrayHoriz.len(); i++) {
+  for (i = 0, j = 0; i <= arrayHoriz.len(); i++, j++) {
   	multTable += "<th> $arrayHoriz[j] </th>"
-  	j++;
   }
 
   multTable += "</tr><tr>"
 
-for (i = 0; i <= arrayHoriz.len(); i++) {
-  	multTable += "<td> $arrayHoriz[j] </th>"
-  	j++;
+  for (i = 0, k = 0; i <= arrayVerti.len(); i++, k++) {
+    for (i = 0, j = 0; i <= arrayHoriz.len(); i++, j++) {
+      multTable += "<td> $arrayHoriz[j]*$arrayHoriz[k] </td>"
+    }
   }
 
-
+  	multTable += "</tr></table>"
 }
 
-// Call the function
-updateMessage();

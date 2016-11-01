@@ -18,7 +18,7 @@ function updateTable() {
   	arrayVerti[k] = i;
   }
 
-  multTable = "<table><tr>";
+  multTable = "<table><tr><td>&nbsp;</td>";
 
   for (i = 0; i <= arrayHoriz.length; i++) {
   	multTable += "<td>" + arrayHoriz[i] + " </td>";
@@ -26,12 +26,15 @@ function updateTable() {
 
   multTable += "</tr><tr>";
 
-  for (i = 0; i <= arrayVerti.length; i++) {
-    for (j = 0; j <= arrayHoriz.length; j++) {
-      console.log(arrayHoriz[j]*arrayVerti[i]);
-      console.log(arrayHoriz[j])
-      multTable += "<td>" + arrayHoriz[j]*arrayVerti[i] + " </td>";
-    }
+  for (k = 0; k <= arrayVerti.length; k++){
+    multTable += "<td>" + arrayVerti[k] + "</td>";
+      for (i = 0; i <= arrayVerti.length; i++) {
+        for (j = 0; j <= arrayHoriz.length; j++) {
+          console.log(arrayHoriz[j]*arrayVerti[i]);
+          console.log(arrayHoriz[j])
+          multTable += "<td>" + arrayHoriz[j]*arrayVerti[i] + " </td>";
+        }
+      }
     multTable += "</tr><tr>"
   }
 

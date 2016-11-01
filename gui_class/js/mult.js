@@ -21,17 +21,20 @@ function updateTable() {
   multTable = "<table><tr>";
 
   for (i = 0, j = 0; i <= arrayHoriz.len(); i++, j++) {
-  	multTable += "<th> $arrayHoriz[j] </th>"
+  	multTable += "<th> $arrayHoriz[j] </th>";
   }
 
-  multTable += "</tr><tr>"
+  multTable += "</tr><tr>";
 
   for (i = 0, k = 0; i <= arrayVerti.len(); i++, k++) {
     for (i = 0, j = 0; i <= arrayHoriz.len(); i++, j++) {
-      multTable += "<td> $arrayHoriz[j]*$arrayHoriz[k] </td>"
+      multTable += "<td> $arrayHoriz[j]*$arrayHoriz[k] </td>";
     }
   }
 
-  	multTable += "</tr></table>"
+  	multTable += "</tr></table>";
+
+    return false;
 }
+
 

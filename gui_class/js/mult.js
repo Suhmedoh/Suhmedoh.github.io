@@ -1,12 +1,13 @@
-var horizValue1 = document.getElementById("horiz1").value;
-var horizValue2 = document.getElementById("horiz2").value;
-var vertiValue1 = document.getElementById("verti1").value;
-var vertiValue2 = document.getElementById("verti2").value;
-var arrayHoriz = new Array();
-var arrayVerti = new Array();
-var multTable;
+
 
 function updateTable() {
+  var horizValue1 = document.getElementById("horiz1").value;
+  var horizValue2 = document.getElementById("horiz2").value;
+  var vertiValue1 = document.getElementById("verti1").value;
+  var vertiValue2 = document.getElementById("verti2").value;
+  var arrayHoriz = new Array();
+  var arrayVerti = new Array();
+  var multTable;
   var table = document.getElementById('multTable');
 
   for (i = horizValue1, j = 0; i < horizValue2; i++, j++) {

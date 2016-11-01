@@ -33,7 +33,7 @@ function updateTable() {
 
   multTable += "</tr></table>";
 
-  document.getElementById("table").textContent = multTable;
+  document.getElementById("table").innerHTML = multTable;
 
   return false;
 }

@@ -84,6 +84,27 @@ a.default:hover {
   border-right: 1px solid #e28e7f;
 }
 
+td {
+  width: 10px;
+  height: 10px;
+  color: #8a8da9;
+  background: #424242;
+}
+
+td:first-child {
+  width: 10px;
+  height: 10px;
+  color: #e28e7f;
+  background: #272727;
+}
+
+tr:first-child {
+  width: 10px;
+  height: 10px;
+  color: #e28e7f;
+  background: #272727;
+}
+
 /* the animated bar under the main title words */
 #tracer {
 	background-color: #e28e7f;

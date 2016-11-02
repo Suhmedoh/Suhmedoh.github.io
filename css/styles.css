@@ -98,7 +98,7 @@ td:first-child {
   background: #272727;
 }
 
-tr:first-child {
+tr:first-child td {
   width: 10px;
   height: 10px;
   color: #e28e7f;

@@ -20,7 +20,7 @@ function updateTable() {
 
   multTable = "<table><tr><td>&nbsp;</td>";
 
-  for (i = 0; i <= arrayHoriz.length; i++) {
+  for (i = 0; i <= arrayHoriz.length - 1; i++) {
   	multTable += "<td>" + arrayHoriz[i] + " </td>";
   }
 

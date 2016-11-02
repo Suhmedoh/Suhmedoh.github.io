@@ -10,11 +10,11 @@ function updateTable() {
   var multTable;
   var table = document.getElementById('multTable');
 
-  for (i = horizValue1, j = 0; i < horizValue2; i++, j++) {
+  for (i = horizValue1, j = 0; i <= horizValue2; i++, j++) {
   	arrayHoriz[j] = i;
   }
 
-  for (i = vertiValue1, k = 0; i < vertiValue2; i++, k++) {
+  for (i = vertiValue1, k = 0; i <= vertiValue2; i++, k++) {
   	arrayVerti[k] = i;
   }
 

@@ -21,6 +21,11 @@ function updateTable() {
     document.getElementById("table").innerHTML = error;
   }
 
+  else if (((horizValue2 - horizValue1) > 10) || ((vertiValue2 - vertiValue1) > 10)) {
+    error = "Please make sure the different between the two numbers in either range is 10 or less";
+    document.getElementById("table").innerHTML = error;
+  }
+
   else {
 
     for (i = horizValue1, j = 0; i <= horizValue2; i++, j++) {

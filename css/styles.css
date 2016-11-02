@@ -85,28 +85,29 @@ a.default:hover {
 }
 
 td {
-  width: 10px;
+  width: 4%;
   height: 10px;
   color: #8a8da9;
   background: #424242;
+  border: 1px #000 solid;
 }
 
 td:first-child {
-  width: 10px;
+  width: 4%;
   height: 10px;
   color: #e28e7f;
   background: #272727;
 }
 
 tr:first-child td:first-child {
-  width: 10px;
+  width: 4%;
   height: 10px;
   color: #8a8da9;
   background: #424242;
 }
 
 tr:first-child td {
-  width: 10px;
+  width: 4%;
   height: 10px;
   color: #e28e7f;
   background: #272727;
@@ -217,6 +218,7 @@ tr:first-child td {
 footer {
   text-align: right;
   position: absolute;
+  width: 100%;
   bottom: 0px;
   padding-left: 10px;
   padding-bottom: 10px;

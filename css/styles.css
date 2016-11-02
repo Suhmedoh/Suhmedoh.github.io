@@ -37,6 +37,15 @@ h1.style2 {
   animation-direction: alternate;
 }
 
+p {
+  width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  color: #e28e7f;
+  font-family: 'Dosis', sans-serif;
+  font-size: 15px;
+}
+
 p.default {
   width: auto;
   margin-left: auto;
@@ -292,9 +301,7 @@ tr:first-child td {
 
 footer {
   text-align: right;
-  position: absolute;
   width: 100%;
-  bottom: 0px;
   padding-right: 15px;
-  padding-bottom: 0px;
+  padding-top: 50px;
 }

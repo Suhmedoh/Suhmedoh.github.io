@@ -30,8 +30,8 @@ function updateTable() {
     document.getElementById("table").innerHTML = error;
   }
 
-  else if (((horizValue2 - horizValue1) > 20) || ((vertiValue2 - vertiValue1) > 20)) {
-    error = "Please make sure the different between the two numbers in either range is 20 or less";
+  else if (((horizValue2 - horizValue1) > 15) || ((vertiValue2 - vertiValue1) > 15)) {
+    error = "Please make sure the different between the two numbers in either range is 15 or less";
     document.getElementById("table").innerHTML = error;
   }
 

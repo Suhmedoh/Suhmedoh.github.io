@@ -22,10 +22,11 @@ This is my index page, which will lead to my other projects, I'll include links 
 			</div>
 			<div class="col-12">
 				 <form onsubmit="return updateTable()">
-					  <p>enter two separate ranges of numbers to create a multiplication table:<P><br>
-					  <input type="number" name="horiz1" id="horiz1">
+					  <p>Enter two separate ranges of numbers to create a multiplication table.<br>The numbers should have no more than three digits(etc. -999 to 999).  Larger numbers work, but may break the page layout and will not look pretty.<P><br>
+					  
+					  <p>First range:</p><input type="number" name="horiz1" id="horiz1">
 					  <input type="number" name="horiz2" id="horiz2"><br>
-					  <input type="number" name="verti1" id="verti1">
+					  <p>Second range:</p><input type="number" name="verti1" id="verti1">
 					  <input type="number" name="verti2" id="verti2"><br>
 					  <input type="submit" class="button-submit" value="submit">
 					  <br>
@@ -33,10 +34,8 @@ This is my index page, which will lead to my other projects, I'll include links 
 				</form>
 			</div>
 			<div class="col-12">
-				<div class="col-2"></div>
-			    <div class="col-8" id="table">
+			    <div class="col-12" id="table">
 				</div>
-			    <div class="col-2"></div>
 			</div>
 		</div>
 		<!-- jquery and js links -->

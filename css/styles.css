@@ -98,6 +98,13 @@ td:first-child {
   background: #272727;
 }
 
+tr:first-child td:first-child {
+  width: 10px;
+  height: 10px;
+  color: #8a8da9;
+  background: #424242;
+}
+
 tr:first-child td {
   width: 10px;
   height: 10px;

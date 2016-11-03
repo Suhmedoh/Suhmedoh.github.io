@@ -4,7 +4,7 @@ Joshua Semedo
 joshua_semedo@student.uml.edu
 Student at UMass Lowell taking 91.61 GUI Programming I Fall 2016
 10/2/16
-This is my index page, which will lead to my other projects, I'll include links to outside project i'm doing or helpful GUI links on the nav bar
+This is my mult page, which generates a multiplication table based on user input
 -->
 <html lang=en>
 	<head>
@@ -21,16 +21,17 @@ This is my index page, which will lead to my other projects, I'll include links 
 				<h1 class="style2" id="sub-text">Semedo</h1>
 			</div>
 			<div class="col-12">
-				 <form onsubmit="return updateTable()">
-					  <p>Enter two separate ranges of numbers to create a multiplication table.<br>The numbers should have no more than three digits(etc. -999 to 999).  Larger numbers work, but may break the page layout and will not look pretty.<P><br>
-					  
-					  <p>First range:</p><input type="number" name="horiz1" id="horiz1">
-					  <input type="number" name="horiz2" id="horiz2"><br>
-					  <p>Second range:</p><input type="number" name="verti1" id="verti1">
-					  <input type="number" name="verti2" id="verti2"><br>
-					  <input type="submit" class="button-submit" value="submit">
-					  <br>
-					  <br>
+				<!--this is where the form submission happens and I take in the numbers.  Wehn submit is clicked, the updateTable function is called to generate the proper table -->
+				<form onsubmit="return updateTable()">
+					<p>Enter two separate ranges of numbers to create a multiplication table.<br>The numbers should have no more than three digits(etc. -999 to 999).<br>Larger numbers work, but may break the page layout and will not look pretty.<P><br>
+
+					<p>First range:</p><input type="number" name="horiz1" id="horiz1">
+					<input type="number" name="horiz2" id="horiz2"><br>
+					<p>Second range:</p><input type="number" name="verti1" id="verti1">
+					<input type="number" name="verti2" id="verti2"><br>
+					<input type="submit" class="button-submit" value="submit">
+					<br>
+					<br>
 				</form>
 			</div>
 			<div class="col-12">

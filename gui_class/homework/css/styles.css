@@ -197,7 +197,6 @@ tr:first-child td {
   background: #272727;
 }
 
-<<<<<<< HEAD
 /* error for jquery validation */
 #error {
   min-height: 20px;
@@ -210,8 +209,6 @@ tr:first-child td {
 
 }
 
-=======
->>>>>>> 4f411cd69e40aebcce06175b84787c832c39e1c6
 /* the animated bar under the main title words */
 #tracer {
 	background-color: #e28e7f;

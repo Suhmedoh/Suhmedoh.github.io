@@ -1,6 +1,7 @@
 //Joshua Semedo
 //01516816
-//11/2/2016, UMass Lowell
+//11/15/2016, UMass Lowell
+//create a multiplication table with jquery validation
 
 //create a function which creates and updates the table
 function updateTable() {
@@ -34,18 +35,18 @@ function updateTable() {
   else {
     //for loops to establish the ranges on the table
     for (i = horizValue1, j = 0; i <= horizValue2; i++, j++) {
-    	arrayHoriz[j] = i;
+      arrayHoriz[j] = i;
     }
 
     for (i = vertiValue1, k = 0; i <= vertiValue2; i++, k++) {
-    	arrayVerti[k] = i;
+      arrayVerti[k] = i;
     }
 
     //create a variable which holds the html that generates the table
     multTable = "<table><tr><td>&nbsp;</td>";
 
     for (i = 0; i <= arrayHoriz.length - 1; i++) {
-    	multTable += "<td>" + arrayHoriz[i] + " </td>";
+      multTable += "<td>" + arrayHoriz[i] + " </td>";
     }
 
     multTable += "</tr><tr>";
@@ -71,7 +72,7 @@ function updateTable() {
 }
 
 
-//validation
+//validation checker, so it won't attempt to submit the form if there are errors
 function checkErr() {
   if ($("#error").text() == "") {
     $("#chkErr").text("");
@@ -110,6 +111,7 @@ $(document).ready(function(){
           max: 999,
         }
       },
+      //validation messages for each input box
       messages: {
         horiz1: {
           required: "Box 1: Enter a number.",
@@ -141,6 +143,7 @@ $(document).ready(function(){
       submitHandler: function(form) {
       }
     });
+  //ui/ux stuff
   $("#horiz1").mouseenter(function(){
     $('#horiz1').css({
       'font-family': 'Dosis',

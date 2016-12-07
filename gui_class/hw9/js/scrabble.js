@@ -136,24 +136,27 @@ function clearBoard() {
 			tiles.splice(x,1);
 			uniqueTiles -= 1;
 		}
-
 	}
+
 	var previousTiles = document.getElementById("rack").innerHTML;
 	newTiles = previousTiles + totalTiles;
 	document.getElementById("rack").innerHTML = newTiles;
 	totalTiles = "";
 	init();
+
 	for (j = 0; j <= tiles.length - 1; j++) {
 		count = tiles[j].tilesLeft + count;
 	}
+
 	if (count < 7) {
 		tileNum = 2;
 	}
+
 	console.log(count);
 	count = 0;
-
 	playedTiles = [];
 	pti = 0;
+
 	return false;
 }
 
@@ -170,19 +173,23 @@ function getRandomTileImg() {
 			tiles.splice(x,1);
 			uniqueTiles -= 1;
 		}
-
 	}
+
 	document.getElementById("rack").innerHTML = totalTiles;
 	totalTiles = "";
 	init();
+
 	for (j = 0; j <= tiles.length - 1; j++) {
 		count = tiles[j].tilesLeft + count;
 	}
+
 	if (count < 7) {
 		tileNum = 2;
 	}
+
 	console.log(count);
 	count = 0;
+
 	return false;
 }
 
@@ -197,6 +204,7 @@ function checkScore() {
         scoreTotal = scoreTotal + scoreValue[id].value;
     }
 	});
+
 	$('.droppableDw').droppable({
 		drop: function(event, ui) {
         var id = ui.draggable.attr("id");
@@ -204,6 +212,7 @@ function checkScore() {
         scoreTotal = scoreTotal + scoreValue[id].value*2;
     }
 	});
+
 	clearBoard();
 	return false;
 }
@@ -222,6 +231,7 @@ function init() {
         console.log("scoreTotal= " + scoreTotal);
     }
 	});
+	
 	$('.droppableDw').droppable({
 		drop: function(event, ui) {
         var id = ui.draggable.attr("id");

@@ -36,7 +36,7 @@ function setTiles(){
 	tiles[23] = { "letter" : "X", "value" : 8, "tilesLeft" : 1 };
 	tiles[24] = { "letter" : "Y", "value" : 4, "tilesLeft" : 2 };
 	tiles[25] = { "letter" : "Z", "value" : 10, "tilesLeft" : 1 };
-	tiles[26] = { "letter" : "_", "value" : 0, "tilesLeft" : 2 };
+	tiles[26] = { "letter" : "blank", "value" : 0, "tilesLeft" : 2 };
 }
 var scoreValue = [];
 scoreValue["A"] = {  "value" : 1 };
@@ -65,7 +65,7 @@ scoreValue["W"] = {  "value" : 4 };
 scoreValue["X"] = {  "value" : 8 };
 scoreValue["Y"] = {  "value" : 4 };
 scoreValue["Z"] = {  "value" : 10 };
-scoreValue["_"] = {  "value" : 0 };
+scoreValue["blank"] = {  "value" : 0 };
 
 /*declare needed constants */
 var tileNum = 7;

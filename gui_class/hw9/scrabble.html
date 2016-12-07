@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<!--
+Joshua Semedo
+joshua_semedo@student.uml.edu
+Student at UMass Lowell taking 91.61 GUI Programming I Fall 2016
+12/6/16
+Scrabble implementation, did everything except for multiple lines as far as I can tell.
+-->
+<html lang=en>
+	<head>
+		<title> Josh's Webpage </title>
+		<meta charset="utf-8"> 
+		<!-- links to my stylesheet and fonts.google for a nicer font -->
+		<link href="https://fonts.googleapis.com/css?family=Share+Tech+Mono" rel="stylesheet">
+		<link href="./css/styles.css" rel="stylesheet">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="//cdn.jsdelivr.net/jquery.color-animation/1/mainfile"></script>
+		<script type="text/javascript" src="./js/scrabble.js"></script>
+		<script type="text/javascript" src="./js/jquery/jquery-ui.js"></script>
+	</head>
+<body>
+	<div id="main">
+		<div class="col-12">
+			<h1 class="style1" id="main-text">Joshua</h1>
+			<h1 class="style2" id="sub-text">Semedo</h1>
+		</div>
+		<div class="col-12 spacer-large">
+		</div>
+		<div class="col-3" style="height: 300px">
+			<form onsubmit="return getRandomTileImg()">
+				<input type="submit" class="button-submit" value="Randomize Tiles">
+			</form><br>
+			<form onsubmit="return resetGame()">
+				<input type="submit" class="button-submit" value="Reset">
+			</form>
+			<form onsubmit="return checkScore()">
+				<input type="submit" class="button-submit" value="Score">
+			</form>
+		</div>
+		<div class="col-6">
+			<img src="./imgs/Scrabble_Board_Blank.JPG" class="droppableBlank"><img src="./imgs/Scrabble_Board_Double_Word.JPG" class="droppableDw"><img src="./imgs/Scrabble_Board_Blank.JPG" class="droppableBlank"><img src="./imgs/Scrabble_Board_Blank.JPG" class="droppableBlank"><img src="./imgs/Scrabble_Board_Blank.JPG" class="droppableBlank"><img src="./imgs/Scrabble_Board_Double_Word.JPG" class="droppableDw"><img src="./imgs/Scrabble_Board_Blank.JPG" class="droppableBlank">
+		</div>
+		<div class="col-3">
+		</div>
+			<div class="col-10" id="rack">
+			</div>
+		<div class="col-1">
+		</div>
+		</div>
+		<div class="col-3">
+		</div>
+		<div class="col-6" id="score"><p>
+			Score: 0
+			</p>
+		</div>
+		<div class="col-4">
+		</div>
+		<div class="col-12">
+			<div class="col-4">
+			</div>
+			<div class="col-4">
+			<p>
+				Thanks for trying my scrabble game!  Press "randomize" to toss out all your tiles and get new ones. If you keep randomizing, you'll eventually run out of pieces!  You can press randomize again to start over.  Reset starts over from any point.  Your score is kept until you run out of tiles, or you press reset.  Press score each round once you're happy with your word and you'll recieve the appropriate number of new tiles.
+			</p>
+			</div>
+			<div class="col-4">
+			</div>
+		</div>
+	</div>
+</body>
+</html>
